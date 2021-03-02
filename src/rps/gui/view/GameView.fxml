@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="rps.gui.controller.GameViewController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="rps.gui.controller.GameViewController">
    <children>
-      <Button layoutX="161.0" layoutY="188.0" mnemonicParsing="false" text="Rock" />
-      <Button layoutX="270.0" layoutY="188.0" mnemonicParsing="false" text="Paper" />
-      <Button layoutX="365.0" layoutY="188.0" mnemonicParsing="false" text="Scissor" />
-      <Label layoutX="265.0" layoutY="22.0" text="Win/lose text" />
+      <Button fx:id="btnRock" layoutX="161.0" layoutY="188.0" mnemonicParsing="false" onAction="#selectRock" text="Rock" />
+      <Button fx:id="btnPaper" layoutX="270.0" layoutY="188.0" mnemonicParsing="false" onAction="#selectPaper" text="Paper" />
+      <Button fx:id="btnScissor" layoutX="365.0" layoutY="188.0" mnemonicParsing="false" onAction="#selectScissor" text="Scissor" />
+      <Label fx:id="txtWL" alignment="CENTER" contentDisplay="CENTER" layoutX="129.0" layoutY="22.0" prefHeight="17.0" prefWidth="289.0" text="Win/lose text" textAlignment="JUSTIFY" />
       <Label layoutX="286.0" layoutY="127.0" text="VS" />
-      <TextField layoutX="40.0" layoutY="339.0" prefHeight="25.0" prefWidth="469.0" text="Here for trashtalk..." />
-      <TextArea layoutX="40.0" layoutY="250.0" prefHeight="83.0" prefWidth="469.0" text="Trashtalk the robot please....." />
-      <Button layoutX="523.0" layoutY="339.0" mnemonicParsing="false" text="Send" />
+      <TextField fx:id="chatField" layoutX="40.0" layoutY="339.0" prefHeight="25.0" prefWidth="469.0" text="Here for trashtalk..." />
+      <TextArea fx:id="messageField" layoutX="40.0" layoutY="250.0" prefHeight="83.0" prefWidth="469.0" text="Trashtalk the robot please....." />
+      <Button fx:id="btnSend" layoutX="523.0" layoutY="339.0" mnemonicParsing="false" onAction="#selectSend" text="Send" />
       <Label layoutX="259.0" layoutY="162.0" text="Choose One!" />
       <Label layoutX="73.0" layoutY="39.0" text="You:" />
       <Label layoutX="435.0" layoutY="39.0" text="Killer Robot:" />
-      <TextArea layoutX="515.0" layoutY="29.0" prefHeight="17.0" prefWidth="21.0" />
-      <TextArea layoutX="109.0" layoutY="29.0" prefHeight="17.0" prefWidth="21.0" />
       <ImageView fitHeight="112.0" fitWidth="109.0" layoutX="31.0" layoutY="95.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fitHeight="112.0" fitWidth="109.0" layoutX="455.0" layoutY="101.0" pickOnBounds="true" preserveRatio="true" />
+      <Label fx:id="lblPlayerScoreCount" layoutX="103.0" layoutY="39.0" text="0" />
+      <Label fx:id="lblBotScoreCount" layoutX="509.0" layoutY="39.0" text="0" />
    </children>
 </AnchorPane>
