@@ -60,6 +60,7 @@ public class GameManager {
      *
      * @return
      */
+
     public IGameState getGameState() {
         return gameState;
     }

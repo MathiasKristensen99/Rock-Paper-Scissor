@@ -22,7 +22,6 @@ public interface IGameState {
      */
     void setRoundNumber(int roundNumber);
 
-
     /**
      * Returns a collection of the previous Results in the game
      * @return

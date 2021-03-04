@@ -1,13 +1,10 @@
 package rps.bll.player;
 
 //Project imports
-import rps.bll.game.IGameState;
-import rps.bll.game.Move;
-import rps.bll.game.Result;
+import rps.bll.game.*;
 
 //Java imports
-import java.util.ArrayList;
-import java.util.Random;
+import java.util.*;
 
 /**
  * Example implementation of a player.
@@ -35,40 +32,42 @@ public class Player implements IPlayer {
         return name;
     }
 
-
     @Override
     public PlayerType getPlayerType() {
         return type;
     }
 
 
-    /**
-     * Decides the next move for the bot...
-     * @param state Contains the current game state including historic moves/results
-     * @return Next move
-     */
+    public ArrayList<Move> last3moves (List<Move> list) {
+        ArrayList last3moves = new ArrayList();
+        if (list.size() >= 3) {
+            for (int i = 3; i >= 1; i--) {
+                last3moves.add(list.get(list.size() - i));
+                System.out.println(last3moves);
+            }
+        }
+        return last3moves;
+    }
+
     @Override
     public Move doMove(IGameState state) {
         //Historic data to analyze and decide next move...
         ArrayList<Result> results = (ArrayList<Result>) state.getHistoricResults();
-
         Random rand = new Random();
-        Move returnMove;
+        Move botMove;
         int result = rand.nextInt(3) +1;
         switch (result){
             case 1:
-                returnMove = Move.Rock;
+                botMove = Move.Rock;
                 break;
             case 2:
-                returnMove = Move.Paper;
+                botMove = Move.Paper;
                 break;
             default:
-                returnMove = Move.Scissor;
+                botMove = Move.Scissor;
                 break;
         }
-        //Implement better AI here...
-        return returnMove;
-
+        return botMove;
     }
 
 }

@@ -84,6 +84,8 @@ public class GameViewController implements Initializable {
     }
 
     public void selectSend(ActionEvent actionEvent) {
+        String message = chatField.getText();
+        messageField.appendText("Player: " + message + "\n");
     }
 
     public void setScore(Result result) {
@@ -91,6 +93,8 @@ public class GameViewController implements Initializable {
             if (result.getWinnerPlayer().getPlayerType().equals(PlayerType.AI)) {
                 botScore += 1;
                 lblBotScoreCount.setText(String.valueOf(Integer.valueOf(botScore)));
+                String botMessage = "You suck";
+                messageField.appendText("Bot: " + botMessage + "\n");
             } else {
                 playerScore += 1;
                 lblPlayerScoreCount.setText(String.valueOf(Integer.valueOf(playerScore)));
