@@ -53,11 +53,22 @@ public class Player implements IPlayer {
         ArrayList<Result> results = (ArrayList<Result>) state.getHistoricResults();
 
         Random rand = new Random();
-        float randomFloat = rand.nextFloat();
-
-
-
+        Move returnMove;
+        int result = rand.nextInt(3) +1;
+        switch (result){
+            case 1:
+                returnMove = Move.Rock;
+                break;
+            case 2:
+                returnMove = Move.Paper;
+                break;
+            default:
+                returnMove = Move.Scissor;
+                break;
+        }
         //Implement better AI here...
-        return Move.Rock;
+        return returnMove;
+
     }
+
 }
