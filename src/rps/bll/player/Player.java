@@ -13,7 +13,6 @@ import java.util.*;
  */
 public class Player implements IPlayer {
 
-    private float[][] percentFloat;
     private String name;
     private PlayerType type;
 
@@ -21,9 +20,9 @@ public class Player implements IPlayer {
      * @param name
      */
     public Player(String name, PlayerType type) {
-        percentFloat = new float[][]{{0.33f, 0.33f, 0.33f}, {0.33f, 0.33f, 0.33f}, {0.33f, 0.33f, 0.33f}};
         this.name = name;
         this.type = type;
+
     }
 
 
@@ -38,21 +37,21 @@ public class Player implements IPlayer {
     }
 
 
-    public ArrayList<Move> last3moves (List<Move> list) {
-        ArrayList last3moves = new ArrayList();
+    public ArrayList<Result> last3results (ArrayList<Result> list) {
+        ArrayList last3Results = new ArrayList();
         if (list.size() >= 3) {
             for (int i = 3; i >= 1; i--) {
-                last3moves.add(list.get(list.size() - i));
-                System.out.println(last3moves);
+                last3Results.add(list.get(list.size() - i));
+                System.out.println(last3Results);
             }
         }
-        return last3moves;
+        return last3Results;
     }
 
     @Override
     public Move doMove(IGameState state) {
-        //Historic data to analyze and decide next move...
         ArrayList<Result> results = (ArrayList<Result>) state.getHistoricResults();
+
         Random rand = new Random();
         Move botMove;
         int result = rand.nextInt(3) +1;
@@ -69,5 +68,4 @@ public class Player implements IPlayer {
         }
         return botMove;
     }
-
 }
